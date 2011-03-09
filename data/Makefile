@@ -9,6 +9,9 @@ default: ${XML}
 clean:
 	rm -f ${XML} ${JSON}
 
+all.json:
+	./extract.py ${XML} > ${.TARGET}
+
 .xml.json:
 	./extract.py ${.IMPSRC} > ${.TARGET}
 

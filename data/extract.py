@@ -65,10 +65,12 @@ class Event(Node):
         return event
 
 def main(argv, stdout):
-    tree = lxml.etree.parse(argv[1])
-    root = tree.getroot()
+    events = []
+    for input in argv[1:]:
+        tree = lxml.etree.parse(argv[1])
+        root = tree.getroot()
 
-    events = [Event(e).dict() for e in root.xpath("/Events/Event")]
+        events.extend(Event(e).dict() for e in root.xpath("/Events/Event"))
 
     json.dump(events, stdout)
 
