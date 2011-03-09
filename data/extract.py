@@ -67,7 +67,7 @@ class Event(Node):
 def main(argv, stdout):
     events = []
     for input in argv[1:]:
-        tree = lxml.etree.parse(argv[1])
+        tree = lxml.etree.parse(input)
         root = tree.getroot()
 
         events.extend(Event(e).dict() for e in root.xpath("/Events/Event"))
