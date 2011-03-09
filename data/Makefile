@@ -9,7 +9,7 @@ default: ${XML}
 clean:
 	rm -f ${XML} ${JSON}
 
-all.json:
+all.json: ${XML}
 	./extract.py ${XML} > ${.TARGET}
 
 .xml.json:
