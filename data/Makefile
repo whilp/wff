@@ -1,10 +1,12 @@
 YEAR = 2011
-TITLES = AA BB CC DD EE FF GG HH II JJ KK LL MM NN OO PP QQ RR SS TT UU VV WW XX YY ZZ 
+XML = AA.xml BB.xml CC.xml DD.xml EE.xml FF.xml GG.xml HH.xml II.xml JJ.xml KK.xml LL.xml MM.xml NN.xml OO.xml PP.xml QQ.xml RR.xml SS.xml TT.xml UU.xml VV.xml WW.xml XX.xml YY.xml ZZ.xml 
 
-default: ${TITLES}
+.SUFFIXES = .xml
+
+default: ${XML}
 
 clean:
-	rm -f ${TITLES}
+	rm -f ${XML}
 
 .DEFAULT:
-	ftp http://filmguide.wifilmfest.org/tixSYS/${YEAR}/xslguide/Title/XML/$@
+	curl -q -o ${.TARGET} http://filmguide.wifilmfest.org/tixSYS/${YEAR}/xslguide/Title/XML/${.TARGET:R}
