@@ -38,13 +38,16 @@ def main(argv, stdout):
 
     for film in films:
         for screening in film["Screenings"]:
+            numtix = len(selections.get(screening["ScreeningCode"], []))
+            if numtix == 0:
+                continue
             data = screening.copy()
             data.update(film)
             data["DateTime"] = restrftime("%Y.%m.%d %H:%M %a",
                 screening["DateTime"])
             data["ShortVenue"] = venues.get(data["VenueName"], data["VenueName"])
             data["ASCIIEventTitle"] = data["EventTitle"].encode("ascii", "ignore")
-            data["NumberTickets"] = len(selections.get(data["ScreeningCode"], []))
+            data["NumberTickets"] = numtix
             if not data["TicketButtonLink"]:
                 data["ASCIIEventTitle"] += "*"
 
