@@ -34,7 +34,7 @@ def main(argv, stdout):
             screening, people = [x.strip() for x in line.split(None, 1)]
             selections[screening] = people.split(',')
 
-    films = (e for e in data if e["EventType"] in ("M", "F"))
+    films = data
 
     for film in films:
         for screening in film["Screenings"]:
