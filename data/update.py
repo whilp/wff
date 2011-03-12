@@ -2,15 +2,15 @@ import json
 import time
 
 venues = {
-    "Bartell Theater": "BARTELL",
+    "Bartell Theatre": "BARTELL",
     "Chazen Museum of Art": "CHAZEN",
     "Madison Museum of Contemporary Art": "MMOCA",
     "Monona Terrace Convention Center": "MONONA",
-    "Orpheum Main Theater": "ORPH",
-    "Play Circle Theater": "PLAY",
-    "Stage Door Theater": "STAGE",
+    "Orpheum Main Theatre": "ORPH",
+    "Play Circle Theatre": "PLAY",
+    "Stage Door Theatre": "STAGE",
     "UW Cinematheque": "CINEMA",
-    "Wisconsin Union Theater": "UNION",
+    "Wisconsin Union Theatre": "UNION",
 }
 screeningfmt = "%(DateTime)s %(RunTime)3s %(ShortVenue)7s %(ScreeningCode)s " \
     "%(NumberTickets)3s %(ASCIIEventTitle)s\n"
