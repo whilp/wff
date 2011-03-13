@@ -33,6 +33,7 @@ def main(argv, stdout):
             if not line or line.startswith("#"): continue
             screening, people = [x.strip() for x in line.split(None, 1)]
             selections[screening] = people.split(',')
+    cart = {}
 
     films = data
 
@@ -50,8 +51,16 @@ def main(argv, stdout):
             data["NumberTickets"] = numtix
             if not data["TicketButtonLink"]:
                 data["ASCIIEventTitle"] += "*"
+            tix = data['TicketButtonLink']
+            cart[tix] = cart.setdefault(tix, 0) + numtix
 
             stdout.write(screeningfmt % data)
+
+    stdout.flush()
+    stdout.write("\n")
+
+    for link, count in cart.items():
+        stdout.write("%4d %s\n" % (count, link))
 
 if __name__ == "__main__":
     import sys
