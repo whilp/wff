@@ -30,7 +30,8 @@ def main(argv, stdout):
     with open(argv[2]) as f:
         for line in f:
             line = line.strip()
-            if not line or line.startswith("#"): continue
+            if not line or not line.startswith("#"): continue
+            line = line.strip("#").strip()
             screening, people = [x.strip() for x in line.split(None, 1)]
             selections[screening] = people.split(',')
     cart = {}
