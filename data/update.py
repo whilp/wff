@@ -62,9 +62,6 @@ def main(argv, stdout):
     stdout.flush()
     stdout.write("\n")
 
-    for link, count in cart.items():
-        stdout.write("%4d %s\n" % (count, link))
-
 if __name__ == "__main__":
     import sys
     try:
