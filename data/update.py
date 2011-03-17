@@ -25,7 +25,6 @@ def main(argv, stdout):
     with open(argv[1]) as f:
         data = json.load(f)
 
-    # XXX: load selections by ScreeningCode
     selections = {}
     with open(argv[2]) as f:
         for line in f:
