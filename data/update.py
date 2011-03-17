@@ -36,8 +36,11 @@ def main(argv, stdout):
     cart = {}
 
     films = data
+    filmtypes = ("F", "C")
 
     for film in films:
+        if film["EventType"] not in filmtypes:
+            continue
         for screening in film["Screenings"]:
             numtix = len(selections.get(screening["ScreeningCode"], []))
             if numtix == 0:
